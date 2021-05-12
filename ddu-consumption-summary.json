@@ -1,0 +1,651 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.216.107.20210505-135918"
+  },
+  "id": "e5b42d77-0e46-4617-b86b-085347eb319e",
+  "dashboardMetadata": {
+    "name": "DDU Consumption Summary - Values shown based on selected timeframe",
+    "shared": true,
+    "owner": "anthony.pope-cruz@dynatrace.com"
+  },
+  "tiles": [
+    {
+      "name": "Metrics consuming DDUs",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 646,
+        "width": 532,
+        "height": 494
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.metrics.byMetric",
+          "spaceAggregation": "COUNT",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Metric Key"
+          ],
+          "metricSelector": "builtin:billing.ddu.metrics.byMetric:fold:splitBy(Metric Key):count:auto:sort(value(avg,descending)):limit(100)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TABLE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Included Metrics/DDUs per host",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 646,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Metrics - Consumed DDUs",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 646,
+        "width": 532,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Logs - DDU Consumption",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 1178,
+        "width": 532,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.log.byEntity",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.monitored_entity"
+          ],
+          "metricSelector": "builtin:billing.ddu.log.byEntity:fold:splitBy(dt.entity.monitored_entity):sum:auto:sort(value(avg,descending)):limit(15)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Logs - Consumed DDUs",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1178,
+        "width": 532,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Log entities consuming DDUs",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 1178,
+        "width": 532,
+        "height": 494
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.log.byEntity",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.monitored_entity"
+          ],
+          "metricSelector": "builtin:billing.ddu.log.byEntity:fold:splitBy(dt.entity.monitored_entity):sum:auto:sort(value(avg,descending)):limit(100)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TABLE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Serverless - Consumed DDUs",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1710,
+        "width": 532,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Logs - AVG DDUs consumed",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1178,
+        "width": 532,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.log.total",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:billing.ddu.log.total:(fold,):splitBy():avg:auto:sort(value(avg,descending)):limit(1)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Serverless - DDU Consumption",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 1710,
+        "width": 532,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.serverless.byEntity",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:billing.ddu.serverless.byEntity:fold:splitBy():avg:auto:sort(value(avg,descending)):limit(15)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Serverless entities consuming DDUs ",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 1710,
+        "width": 532,
+        "height": 494
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.serverless.byEntity",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.monitored_entity"
+          ],
+          "metricSelector": "builtin:billing.ddu.serverless.byEntity:fold:splitBy(dt.entity.monitored_entity):avg:auto:sort(value(avg,descending)):limit(100)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TABLE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Entities - Consumed DDUs (over included DDUs)",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 2242,
+        "width": 532,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Entities - DDU Consumption (over included DDUs)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 2242,
+        "width": 532,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "B",
+          "metric": "builtin:billing.ddu.metrics.byEntityRaw",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.monitored_entity"
+          ],
+          "metricSelector": "builtin:billing.ddu.metrics.byEntityRaw:fold:splitBy(dt.entity.monitored_entity):sum:auto:sort(value(avg,descending)):limit(15)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Entities - DDU Consumption",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 2242,
+        "width": 532,
+        "height": 494
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.metrics.byEntityRaw",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.monitored_entity"
+          ],
+          "metricSelector": "builtin:billing.ddu.metrics.byEntityRaw:fold:splitBy(dt.entity.monitored_entity):sum:auto:sort(value(avg,descending)):limit(100)",
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:billing.ddu.metrics.byEntity",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.monitored_entity"
+          ],
+          "metricSelector": "builtin:billing.ddu.metrics.byEntity:fold:splitBy(dt.entity.monitored_entity):sum:auto:sort(value(avg,descending)):limit(100)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TABLE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Included Metris/DDUs per host",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 646,
+        "height": 684
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "B",
+          "metric": "builtin:billing.ddu.includedMetricPerHost",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.host"
+          ],
+          "metricSelector": "builtin:billing.ddu.includedMetricPerHost:fold:splitBy(dt.entity.host):sum:auto:sort(value(avg,descending)):limit(100)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TABLE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Included Metris/DDUs per host",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 646,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.includedMetricPerHost",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.host"
+          ],
+          "metricSelector": "builtin:billing.ddu.includedMetricPerHost:fold:splitBy(dt.entity.host):sum:auto:sort(value(avg,descending)):limit(15)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metrics - DDU Consumption (Total)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 646,
+        "width": 532,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.metrics.total",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:billing.ddu.metrics.total:(fold,):splitBy():sum:auto:sort(value(avg,descending)):limit(1)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Serverless - DDUs consumed (Total)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1710,
+        "width": 532,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.serverless.total",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:billing.ddu.serverless.total:(fold,):splitBy():sum:auto:sort(value(avg,descending)):limit(1)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Entities - DDUs consumed Total (over included DDUs)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 2242,
+        "width": 532,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:billing.ddu.metrics.byEntityRaw",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:billing.ddu.metrics.byEntityRaw:(fold,):splitBy():sum:auto:sort(value(avg,descending)):limit(1)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metrics - DDU Consumption",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 646,
+        "width": 532,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "B",
+          "metric": "builtin:billing.ddu.metrics.byEntity",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.monitored_entity"
+          ],
+          "metricSelector": "builtin:billing.ddu.metrics.byEntity:fold:splitBy(dt.entity.monitored_entity):sum:auto:sort(value(avg,descending)):limit(15)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "PIE_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
