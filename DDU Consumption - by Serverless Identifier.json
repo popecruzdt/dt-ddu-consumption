@@ -27,7 +27,7 @@
         "height": 76
       },
       "tileFilter": {},
-      "markdown": "## Serverless Identifier\nDDU Consumption broken down by serverless identifier.  These values are Reported DDU and may not necessarily consume DDU from the available licenses.  To view DDU consumption, refer to the Serverless Entity view."
+      "markdown": "## Serverless Identifier\nDDU Consumption broken down by serverless identifier."
     },
     {
       "name": "Markdown",

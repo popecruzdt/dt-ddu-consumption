@@ -27,7 +27,7 @@
         "height": 76
       },
       "tileFilter": {},
-      "markdown": "## Log Identifier\nDDU Consumption broken down by log identifier.  These values are Reported DDU and may not necessarily consume DDU from the available licenses.  To view DDU consumption, refer to the Log Entity view."
+      "markdown": "## Log Identifier\nDDU Consumption broken down by log identifier."
     },
     {
       "name": "Markdown",

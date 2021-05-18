@@ -27,7 +27,7 @@
         "height": 76
       },
       "tileFilter": {},
-      "markdown": "## Trace Identifier\nDDU Consumption broken down by trace identifier.  These values are Reported DDU and may not necessarily consume DDU from the available licenses.  To view DDU consumption, refer to the Trace Entity view."
+      "markdown": "## Trace Identifier\nDDU Consumption broken down by trace identifier."
     },
     {
       "name": "Markdown",

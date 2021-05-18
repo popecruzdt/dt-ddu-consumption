@@ -27,7 +27,7 @@
         "height": 76
       },
       "tileFilter": {},
-      "markdown": "## Event Identifier\nDDU Consumption broken down by event identifier.  These values are Reported DDU and may not necessarily consume DDU from the available licenses.  To view DDU consumption, refer to the Event Entity view."
+      "markdown": "## Event Identifier\nDDU Consumption broken down by event identifier."
     },
     {
       "name": "Markdown",
